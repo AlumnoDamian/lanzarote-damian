@@ -8,7 +8,7 @@ use App\Models\User;
 
 use Spatie\Permission\Models\Role;
 
-class Usuario extends Controller
+class UserController extends Controller
 {
 
     public function __construct()
