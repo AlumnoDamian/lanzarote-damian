@@ -40,11 +40,17 @@
         </div>
 
         <div class="mt-4">
-            <x-input-label for="role" :value="__('Select Role')" />
-            <select id="role" name="role" class="block mt-1 w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                <option value="editor" {{ old('role', $user->role) === 'editor' ? 'selected' : '' }}>Editor</option>
-                <option value="admin" {{ old('role', $user->role) === 'admin' ? 'selected' : '' }}>Admin</option>
-            </select>
+            <x-input-label :value="__('Select Role')" />
+            <div class="flex items-center space-x-4">
+                <label>
+                    <input type="radio" name="role" value="admin" required>
+                    Admin
+                </label>
+                <label>
+                    <input type="radio" name="role" value="editor" required>
+                    Editor
+                </label>
+            </div>
             <x-input-error :messages="$errors->get('role')" class="mt-2" />
         </div>
 
