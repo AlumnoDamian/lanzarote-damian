@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\UserController;
 
 // Redirigir a login si no está autenticado
 Route::get('/', function () {
@@ -39,6 +40,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 Route::get('/admin', function () {
     return view('admin.dashboard');
 })->middleware('auth');
+
+Route::resource('users', UserController::class)->middleware('auth');
 
 
 

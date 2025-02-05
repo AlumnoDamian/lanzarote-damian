@@ -14,9 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        User::truncate(); 
+
         // Crear roles si no existen
         $adminRole = Role::firstOrCreate(['name' => 'admin']);
-        $userRole = Role::firstOrCreate(['name' => 'user']);
+        $userRole = Role::firstOrCreate(['name' => 'editor']);
 
         // Crear usuario administrador
         $admin = User::firstOrCreate([
